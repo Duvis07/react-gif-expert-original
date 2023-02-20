@@ -36,6 +36,12 @@ describe('Pruebas en <GifGrid />', () => {
                 title: 'Goku',
                 url: 'https://localhost/goku.jpg'
             },
+
+            {
+                id: '456',
+                title: 'Vegeta',
+                url: 'https://localhost/vegeta.jpg'
+            }
         ]
 
         useFetchGifs.mockReturnValue({
@@ -44,7 +50,7 @@ describe('Pruebas en <GifGrid />', () => {
         });
 
         render( <GifGrid category={ category } /> );
-        expect( screen.getAllByRole('img').length ).toBe(2);
+        expect( screen.getAllByRole('img').length ).toBe(3);
         
 
 

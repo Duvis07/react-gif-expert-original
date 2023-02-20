@@ -18,6 +18,7 @@ describe('Pruebas en <AddCategory />', () => {
     test('debe de llamar onNewCategory si el input tiene un valor', () => {
         
         const inputValue    = 'Saitama';
+        //es una funcion que esta marcada como un mock
         const onNewCategory = jest.fn();
 
         render( <AddCategory onNewCategory={ onNewCategory } /> );
@@ -27,11 +28,13 @@ describe('Pruebas en <AddCategory />', () => {
 
         fireEvent.input( input, { target: { value: inputValue } });
         fireEvent.submit( form );
-        // screen.debug();
+         screen.debug();
         expect( input.value ).toBe('');
 
+        //Aca se evalua si la funcion si fuese llamada
         expect( onNewCategory ).toHaveBeenCalled();
         expect( onNewCategory ).toHaveBeenCalledTimes(1);
+        //Aca se evalua si la funcion si fuese llamada con un argumento inputValue
         expect( onNewCategory ).toHaveBeenCalledWith( inputValue );
 
     });
